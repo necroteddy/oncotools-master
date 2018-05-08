@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Radio-morphology &mdash; oncotools 2.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="oncotools 2.0.1 documentation" href="../index.html"/>
+        <link rel="prev" title="Connecting to the database" href="sample_code/example_connect.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> oncotools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source.html">Source Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Sample scripts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Radio-morphology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#features">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#features-base-class">Features Base Class</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">oncotools</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Radio-morphology</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_source/radio_morphology.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="radio-morphology">
+<h1>Radio-morphology<a class="headerlink" href="#radio-morphology" title="Permalink to this headline">¶</a></h1>
+<p>Radio-morphologic (RM) analysis refers to a process by which consistently identifiable physical characteristics
+of an image can be used to analyze the dose distributions throughout a region of interest (ROI).
+Rather that examining the dose distribution on the broad scale of an entire organ
+or on the analytically intractable level of individual voxels,
+RM analysis selects a level of specificity using prior anatomical understanding to create meaningful substructures.
+Parametrically defined shape transformations are used to produce substructures from a given ROI or set of ROI&#8217;s.</p>
+<p>The concept of RM features is implemented in the <cite>radio_morphology</cite> module and the <a class="reference internal" href="code_docs/features.html#features"><span class="std std-ref">Features</span></a> classes.</p>
+</div>
+<div class="section" id="features">
+<h1>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="features-base-class">
+<h2>Features Base Class<a class="headerlink" href="#features-base-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="radio_morphology.feature.Feature">
+<em class="property">class </em><code class="descclassname">radio_morphology.feature.</code><code class="descname">Feature</code><span class="sig-paren">(</span><em>featureID</em>, <em>feature_type=None</em>, <em>mask=None</em>, <em>dose=None</em><span class="sig-paren">)</span><a class="headerlink" href="#radio_morphology.feature.Feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Feature class is an abstract representation of an RM feature.
+Many types of RM features can be defined as extensions of this base class.</p>
+<p>Each subclass can take different arguments and perform different processing steps.</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">featureID:</th><td class="field-body">feature identifier</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Properties:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">id:</th><td class="field-body">patient identifier</td>
+</tr>
+<tr class="field-even field"><th class="field-name">type:</th><td class="field-body">identifier for the type of feature calculation</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">loaded:</th><td class="field-body">flag for whether or not necessary values have been loaded</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Loaded properties:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">mask:</th><td class="field-body">binary mask that is loaded</td>
+</tr>
+<tr class="field-even field"><th class="field-name">dose:</th><td class="field-body">dose grid that is loaded</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Calculated properties:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">feature_mask:</th><td class="field-body">mask after shape transformation</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">feature_dosemask:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">dose_masks making up the feature</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">values:</th><td class="field-body">the values associated with the feature</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl class="method">
+<dt id="radio_morphology.feature.Feature.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>mask</em>, <em>dose</em><span class="sig-paren">)</span><a class="headerlink" href="#radio_morphology.feature.Feature.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the feature with a mask and a dose grid.</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">mask:</th><td class="field-body">mask to be processed</td>
+</tr>
+<tr class="field-even field"><th class="field-name">dose:</th><td class="field-body">dose grid</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="radio_morphology.feature.Feature.process">
+<code class="descname">process</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#radio_morphology.feature.Feature.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process the feature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="radio_morphology.feature.Feature.process_dose">
+<code class="descname">process_dose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#radio_morphology.feature.Feature.process_dose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process the data: compute the feature values.</p>
+<p>The process() method is different for each type of feature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="radio_morphology.feature.Feature.process_mask">
+<code class="descname">process_mask</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#radio_morphology.feature.Feature.process_mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process the data: perform the shape transformations.</p>
+<p>The process_mask() method is different for each type of feature.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="radio_morphology.feature.Feature.values">
+<code class="descname">values</code><a class="headerlink" href="#radio_morphology.feature.Feature.values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the values.</p>
+<p>Each type of feature class has a different type of output.
+See each class&#8217;s documentation for further details.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="sample_code/example_connect.html" class="btn btn-neutral" title="Connecting to the database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, oncotools.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

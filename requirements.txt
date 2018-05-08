@@ -1,0 +1,7 @@
+schema==0.6.7
+pyodbc
+numpy
+scipy
+scikit-learn
+matplotlib
+pandas
