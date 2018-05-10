@@ -6,7 +6,7 @@ Created on Wed May  9 20:12:02 2018
 """
 import sys
 
-class Stat():
+class Statistics():
     def __init__(self, lst):
         self.statlist = lst
         self.numbTrue = -1
