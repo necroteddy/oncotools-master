@@ -15,4 +15,5 @@ Contents:
    code_docs/query.rst
    code_docs/data_elements.rst
    code_docs/transform.rst
+   code_docs/radio_morphology.rst
    code_docs/features.rst
