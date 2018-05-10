@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module MaskValidator</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>MaskValidator</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cvincent%20qi%5Cdocuments%5Cpython%20scripts%5Concotools-master%5Concotools-master%5Concotools%5Cdata_integrity%5Cmodules%5Cmaskvalidator.py">c:\users\vincent qi\documents\python scripts\oncotools-master\oncotools-master\oncotools\data_integrity\modules\maskvalidator.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="MaskValidator.html#MaskValidator">MaskValidator</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MaskValidator">class <strong>MaskValidator</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;<a href="#MaskValidator">MaskValidator</a>&nbsp;class&nbsp;contains&nbsp;validation&nbsp;functions&nbsp;for&nbsp;mask&nbsp;shapes.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="MaskValidator-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="MaskValidator-check_contiguity"><strong>check_contiguity</strong></a>(self, mask, method='extent')</dt><dd><tt>Check&nbsp;the&nbsp;contiguity&nbsp;of&nbsp;a&nbsp;mask.<br>
+&nbsp;<br>
+Keyword&nbsp;arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:method:&nbsp;&nbsp;&nbsp;&nbsp;(default='extent')&nbsp;Which&nbsp;method&nbsp;should&nbsp;be&nbsp;used?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Options&nbsp;are&nbsp;'extent',&nbsp;'volume'&nbsp;or&nbsp;'surface'<br>
+&nbsp;<br>
+Algorithms:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:extent:&nbsp;&nbsp;&nbsp;&nbsp;fastest&nbsp;method,&nbsp;but&nbsp;possible&nbsp;to&nbsp;produce&nbsp;false&nbsp;negatives<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:surface:&nbsp;&nbsp;&nbsp;efficient,&nbsp;but&nbsp;may&nbsp;rarely&nbsp;produce&nbsp;false&nbsp;negatives&nbsp;if&nbsp;surfaces&nbsp;are&nbsp;jagged<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:volume:&nbsp;&nbsp;&nbsp;&nbsp;very&nbsp;slow,&nbsp;but&nbsp;will&nbsp;always&nbsp;be&nbsp;accurate</tt></dd></dl>
+
+<dl><dt><a name="MaskValidator-modules"><strong>modules</strong></a>()</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
