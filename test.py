@@ -7,6 +7,9 @@ Runs all tests in the test directory using `unittest`
 import sys
 import unittest
 
+import numpy as np
+from oncotools.data_integrity.Manager import Manager
+
 from oncotools.connect import Database
 from oncotools.utils.query.patient_representations import PatientRepresentationsQueries
 from oncotools.utils.query.regions_of_interest import RegionsOfInterestQueries
@@ -100,14 +103,42 @@ if __name__ == '__main__':
     PRQ = PatientRepresentationsQueries(dbase)
     ROIQ = RegionsOfInterestQueries(dbase)
     AQ = AssessmentsQueries(dbase)
+    manager = Manager()
 
     #create patient  list
     patients = PRQ.get_patient_id_LUT()
+    masks = ROIQ.get_roi_names()
+    module = 'extent'
+    output = np.tile(-1, (10, len(masks)))#(len(patients), len(masks)))
+    i = 0
+    j = 0
+    #print(len(patients))
+    #print(len(masks))
+    for key in patients:
+        j = 0
+        print("Patient %f out of %f"%(i, len(patients)))
+        for name in masks:
+            #print("Patient %f, Mask %f"%(i, j))
+            #pull mask from ROI
+            ROI_ID = ROIQ.get_id_by_patient_rep_id_name(key, name)
+            if ROI_ID is not None: # mask exists
+                mask = ROIQ.get_mask(ROI_ID)
+                valid = manager.runModule(mask, module)
+                output[i][j] = valid
+                #print("Patient %f, Mask %f, State %f"%(i, j, output[i][j]))
+            j = j + 1
+        i = i + 1
+        if i is 10:
+            break;
+    np.savetxt('output.txt', output, fmt='%i')
 
-    #itterate through patients
+
+    '''
     for key in patients:
         assessement = AQ.get_assessment_names(key)
         print(assessement)
+    '''
+
     """
     # Parse the flags
     flags = []

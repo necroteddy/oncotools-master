@@ -54,4 +54,4 @@ class check_contiguity_extent(object):
         else:
             errortype = None
 
-        return (valid, message, errortype)
+        return valid #(valid, message, errortype)

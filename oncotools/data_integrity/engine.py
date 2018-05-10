@@ -46,7 +46,7 @@ class engine(object):
         '''
         return the Roi names of all masks
         '''
-        print(self.ROIQ.get_roi_names())
+        return self.ROIQ.get_roi_names()
 
     def point_run(self, modules = "All", masks = "All"):
         '''
@@ -87,6 +87,11 @@ class engine(object):
         print(output)
 
                 '''
+        for key in patients:
+            for name in masks:
+                #pull mask from ROI
+                ROI_ID = self.ROIQ.get_id_by_patient_rep_id_name(key, name)
+                mask = self.ROIQ.get_mask(ROI_ID)
                 for module in modules:
                     valid = Validator.runModule(module, mask)
                     if valid[1] == False:

@@ -82,4 +82,4 @@ class check_contiguity_voxels(object):
         else:
             errortype = None
 
-        return (valid, message, errortype)
+        return valid #(valid, message, errortype)
