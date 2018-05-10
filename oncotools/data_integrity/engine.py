@@ -8,8 +8,13 @@ from oncotools.data_integrity.AnomalyData import Anomaly
 #import data
 
 class engine(object):
+<<<<<<< HEAD
 
     def __init__(self, db = 'OncospaceHeadNeck', us='oncoguest', pw='0ncosp@ceGuest'):
+=======
+    
+    def __init__(self, None, None, db = 'OncospaceHeadNeck', us='oncoguest', pw='0ncosp@ceGuest'):
+>>>>>>> 585a77ae53dc56eb7236d8ef2284d49bea7750ec
         #connect to database
         self.dbase = Database(db, us, pw) #how to close?
 
