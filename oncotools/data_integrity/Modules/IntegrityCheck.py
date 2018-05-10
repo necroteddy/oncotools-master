@@ -1,7 +1,6 @@
-from abc import ABC
 import numpy as np
 
-class Integrity_Check(ABC):
+class Integrity_Check(object):
     def __init__(self):
         self.name = "Integrity_Check"
         self.function = "Basic Integrity Check Class. \n\t:mask:  mask object"
@@ -16,19 +15,7 @@ class Integrity_Check(ABC):
     def description(self):
         return self.description
 
-    @abstractmethod
-    def check_valid(self, mask):
-        pass
-
-    @abstractmethod
-    def generate_message(self, mask):
-        pass
-
     def generate_error(self, valid):
-        if valid: # No error
-            return None
-        else: # Error
-            return "Error: " + self.name  + " Class"
 
 
     def check_integrity(self, patient):
@@ -46,18 +33,17 @@ class Integrity_Check(ABC):
             :errortype:  error message
         '''
         # Basic Validity (Integrity) Check
-        valid = check_valid(self, mask)
+        valid = False
 
         # Basic error message construction (if necessary)
-        error = generate_error(self, mask, valid)
+        error = None
+        if not valid: # Error
+            error "Error: " + self.name  + " Class"
 
         # Basic return message construction
-        if valid:
-            # No error
-            message = 'Return: Valid'
-        else:
-            # Description of error
-            message = 'Return: Error, ' + 'Mask Invalid'
+        message = 'Return: Valid'
+        if not valid: # Error
+            message = 'Return: Error, ' + description + ' Mask Invalid'
 
         # Return generated (valid, message, errortype)
         return (valid, message, errortype)

@@ -33,9 +33,6 @@ class Manager(object):
             :mask:      The masks that will be analysed
             an array of Roi masks names indicating which masks to look at use
         '''
-                    'extent': lambda m: self.,
-                    'volume': lambda m: self.check_contiguity_voxels(m, surface=False),
-                    'surface': lambda m: self.check_contiguity_voxels(m, surface=True)
         for i in module:
             if module == 'extent':
                 valid = check_contiguity_extent.check_integrity(patient)
