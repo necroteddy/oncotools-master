@@ -2,7 +2,7 @@
 
 Python library to interact with Oncospace database
 
-[Click here](http://oncospace.github.io/oncotools/) for full documentation (or open `docs/_build/html/index.html`)
+for full documentation (or open `docs/_build/html/index.html`)
 
 ## TODO
 
