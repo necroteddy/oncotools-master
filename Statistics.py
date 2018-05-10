@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed May  9 20:12:02 2018
-
-@author: Vincent Qi
-"""
 import sys
 
 class Statistics():
@@ -11,11 +5,11 @@ class Statistics():
         self.statlist = lst
         self.numbTrue = -1
         self.numbFalse = -1
-        
+
     def calcstats(self):
         self.numbTrue = sum(self.statlist)
         self.numbFalse = len(self.statlist) - self.numbTrue
-        
+
     def printstats(self):
         if self.numTrue == -1:
             self.calcstats()
