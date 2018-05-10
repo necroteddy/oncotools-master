@@ -6,20 +6,20 @@ class check_contiguity_voxels(object):
     def __init__(self):
         self.name = "check_contiguity_voxels(mask, surface)"
         self.function = "Check that a mask is contiguous using region neighbor-crawling technique. \nPositional arguments: \n\t:mask:  mask object \n\nKeyword arguments:\n\t:surface:   (default=True) If true, use the surface mask, else use the volume mask"
-    
+
     def name(self):
         return self.name
-    
+
     def name2():
         return "check_contiguity_voxels(mask, volume)"
-    
+
     def function(self):
         return self.function
-    
+
     def description(self):
         return {self.name: self.function, self.name2(): self.function}
-    
-    def check_contiguity_voxels(self, mask, surface=True):
+
+    def check_integrity(self, patient, surface=True):
         '''
         Check that a mask is contiguous using region neighbor-crawling technique.
 
@@ -82,5 +82,3 @@ class check_contiguity_voxels(object):
             errortype = None
 
         return (valid, message, errortype)
-    
-   

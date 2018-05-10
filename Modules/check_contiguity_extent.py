@@ -7,14 +7,14 @@ class check_contiguity_extent(object):
 
     def name(self):
         return self.name
-    
+
     def function(self):
         return self.function
-        
+
     def description(self):
         return {self.name: self.function}
-        
-    def check_contiguity_extent(self, mask):
+
+    def check_integrity(self, patient):
         '''
         Check that a mask is contiguous using projections along x, y, and z axes.
 
@@ -47,7 +47,7 @@ class check_contiguity_extent(object):
                 if missing[i] > 0
             ]
             message = 'Warning: ' + ', '.join(missing_message)
-            
+
         if valid == False:
             errortype = "error found by check_contiguity_extent()"
         else:
