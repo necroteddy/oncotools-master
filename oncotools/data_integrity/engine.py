@@ -83,9 +83,6 @@ class engine(object):
                 mask = self.ROIQ.get_mask(ROI_ID)
                 if mask is not None: # mask exists
                     output[i][j] = manager.runModule(mask, module)
-                    if v is False:
-                        visual.visualize_mask(mask)
-                        v = True
                 j++
             i++
 

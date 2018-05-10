@@ -1,9 +1,9 @@
 import numpy as np
 
-class Integrity_Check(object):
+class check_dose_grid(object):
     def __init__(self):
-        self.name = "Integrity_Check"
-        self.function = "Basic Integrity Check Class. \n\t:mask:  mask object"
+        self.name = "check_dose_grid"
+        self.function = "Check Dose Grid Data. \n\t:dose grid: dose object"
         self.description = {self.name: self.function}
 
     def name(self):
@@ -15,7 +15,7 @@ class Integrity_Check(object):
     def description(self):
         return self.description
 
-    def check_integrity(self, patient):
+    def check_integrity(self, dosegrid):
         '''
         Basic Integrity Check function. Subclass should modify this function.
 
@@ -30,7 +30,10 @@ class Integrity_Check(object):
             :errortype:  error message
         '''
         # Basic Validity (Integrity) Check
+        max = dosegrid.max
         valid = False
+        if max > 0:
+            valid = True
 
         # Basic error message construction (if necessary)
         errortype = None
@@ -39,8 +42,9 @@ class Integrity_Check(object):
 
         # Basic return message construction
         message = 'Return: Valid'
+        description = "Dose Grid"
         if not valid: # Error
-            message = 'Return: Error, ' + description + ' Mask Invalid'
+            message = 'Return: Error, ' + description + ' Invalid'
 
         # Return generated (valid, message, errortype)
-        return (valid, message, errortype)
+        return valid

@@ -1,5 +1,7 @@
 from oncotools.data_integrity.Modules.check_contiguity_extent import check_contiguity_extent
 from oncotools.data_integrity.Modules.check_contiguity_voxels import check_contiguity_voxels
+from oncotools.data_integrity.Modules.check_dose_grid import check_dose_grid
+
 
 '''
 The OncospaceValidator module contains the classes and methods needed to evaluate data integrity.
@@ -13,9 +15,10 @@ class Manager(object):
     '''
 
     def __init__(self):
-        self.dic = ['extent', 'surface', 'volume']
+        self.dic = ['extent', 'surface', 'volume', 'dose']
         self.extent = check_contiguity_extent()
         self.voxel = check_contiguity_voxels()
+        self.dosemax = check_dose_grid()
         #make this dynamic later
 
     def getModules(self):
@@ -46,6 +49,8 @@ class Manager(object):
             elif module == 'volume':
                 #valid = check_contiguity_voxels.check_contiguity(patient, 'volume')
                 valid = self.voxel.check_integrity(mask, 'volume')
+            elif module == 'dose':
+                valid = self.dosemax.check_integrity(mask)
             return valid
 
 if __name__ =="__main__":

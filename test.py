@@ -13,7 +13,7 @@ from oncotools.data_integrity.Manager import Manager
 from oncotools.connect import Database
 from oncotools.utils.query.patient_representations import PatientRepresentationsQueries
 from oncotools.utils.query.regions_of_interest import RegionsOfInterestQueries
-from oncotools.utils.query.radiotherapy_sessions.RadiotherapySessionsQueries import RadiotherapySessionsQueries
+from oncotools.utils.query.radiotherapy_sessions import RadiotherapySessionsQueries
 from oncotools.utils.query.assessments import AssessmentsQueries
 from oncotools.data_elements.dose_map import DoseMask
 import oncotools.visualize as visual
@@ -106,47 +106,62 @@ if __name__ == '__main__':
     PRQ = PatientRepresentationsQueries(dbase)
     ROIQ = RegionsOfInterestQueries(dbase)
     AQ = AssessmentsQueries(dbase)
-    RadiotherapySessionsQueries
+    RSQ = RadiotherapySessionsQueries(dbase)
     manager = Manager()
 
     #create patient  list
     patients = PRQ.get_patient_id_LUT()
     masks = ROIQ.get_roi_names()
-    #module = 'extent'
-    module = 'surface'
-    #module = 'volume'
-    output = np.tile(-1, (10, len(masks)))#(len(patients), len(masks)))
+    module = 'dose'
+    output = []
+    #output = np.tile(-1, (10, len(masks)))#(len(patients), len(masks)))
     i = 0
-    j = 0
     v = False
     #print(len(patients))
     #print(len(masks))
     for key in patients:
         j = 0
-        #print("Patient %f out of %f"%(i, len(patients)))
-        for name in masks:
+        print("Patient %f out of %f"%(i, len(patients)))
+        RTS_information = np.array(RSQ.get_session_ids(key).to_array())
+        #print(RTS_information)
+        RTS_IDs = RTS_information[:,0]
+        row = []
+        for ID in RTS_IDs:
+            print("Patient %f, %s"%(i, ID))
+            dosegrid = RSQ.get_dose_grid(ID)
+            valid = manager.runModule(dosegrid, module)
+            row.append(valid)
+            #print(row)
+            j = j + 1
+        output.append(row)
+        #print(output)
+        #for name in masks2:
             #print("Patient %f, Mask %f"%(i, j))
             #pull mask from ROI
-            ROI_ID = ROIQ.get_id_by_patient_rep_id_name(key, name)
+            #ROI_ID = ROIQ.get_id_by_patient_rep_id_name(key, name)
+        '''
             if ROI_ID is not None: # mask exists
-                print("Patient %f, Mask %f"%(i, j))
+                #print("Patient %f, Mask %f"%(i, j))
                 tempmask = ROIQ.get_mask(ROI_ID)
                 dosegrid = RSQ.get_dose_grid(patients[key])
                 mask = DoseMask(tempmask, dosegrid).compute_dose_mask()
-                
+
                 if v is False:
                     print('visual start')
                     visual.visualize_mask(mask, None, None, 0.1)
                     v = True
                     print('visual done')
+
                 valid = manager.runModule(mask, module)
                 output[i][j] = valid
-                print("State: %f"%(output[i][j]))
+                #print("State: %f"%(output[i][j]))
                 #print("Patient %f, Mask %f, State %f"%(i, j, output[i][j]))
             j = j + 1
+        '''
         i = i + 1
-        if i is 10:
+        if i is 100:
             break;
+    output = np.array(output)
     np.savetxt('output2.txt', output, fmt='%i')
 
 
