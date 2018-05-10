@@ -15,9 +15,6 @@ class Integrity_Check(object):
     def description(self):
         return self.description
 
-    def generate_error(self, valid):
-
-
     def check_integrity(self, patient):
         '''
         Basic Integrity Check function. Subclass should modify this function.
