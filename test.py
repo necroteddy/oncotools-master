@@ -13,7 +13,9 @@ from oncotools.data_integrity.Manager import Manager
 from oncotools.connect import Database
 from oncotools.utils.query.patient_representations import PatientRepresentationsQueries
 from oncotools.utils.query.regions_of_interest import RegionsOfInterestQueries
+from oncotools.utils.query.radiotherapy_sessions.RadiotherapySessionsQueries import RadiotherapySessionsQueries
 from oncotools.utils.query.assessments import AssessmentsQueries
+from oncotools.data_elements.dose_map import DoseMask
 import oncotools.visualize as visual
 
 # Test directory
@@ -104,6 +106,7 @@ if __name__ == '__main__':
     PRQ = PatientRepresentationsQueries(dbase)
     ROIQ = RegionsOfInterestQueries(dbase)
     AQ = AssessmentsQueries(dbase)
+    RadiotherapySessionsQueries
     manager = Manager()
 
     #create patient  list
@@ -127,7 +130,10 @@ if __name__ == '__main__':
             ROI_ID = ROIQ.get_id_by_patient_rep_id_name(key, name)
             if ROI_ID is not None: # mask exists
                 print("Patient %f, Mask %f"%(i, j))
-                mask = ROIQ.get_mask(ROI_ID)
+                tempmask = ROIQ.get_mask(ROI_ID)
+                dosegrid = RSQ.get_dose_grid(patients[key])
+                mask = DoseMask(tempmask, dosegrid).compute_dose_mask()
+                
                 if v is False:
                     print('visual start')
                     visual.visualize_mask(mask, None, None, 0.1)
