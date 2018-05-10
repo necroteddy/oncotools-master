@@ -2,12 +2,14 @@ from oncotools.connect import Database
 from oncotools.utils.query.patient_representations import PatientRepresentationsQueries
 from oncotools.utils.query.regions_of_interest import RegionsOfInterestQueries
 
-from oncotools.data_integrity.ModuleManager import Validator
-from oncotools.data_integrity.ReportManager import Report
-from oncotools.data_integrity.AnomalyData import Anomaly
+from oncotools.data_integrity.Manager import Manager
+from oncotools.data_integrity.Statistics import Statistics
+#from oncotools.data_integrity.Reader import Reader
 #import data
 
-class engine(object): 
+import numpy as np
+
+class engine(object):
     def __init__(self, None, None, db = 'OncospaceHeadNeck', us='oncoguest', pw='0ncosp@ceGuest'):
         #connect to database
         self.dbase = Database(db, us, pw) #how to close?
@@ -17,9 +19,8 @@ class engine(object):
         self.ROIQ = RegionsOfInterestQueries(self.dbase)
 
         #initialize manager classes
-        self.validator = Validator()
-        self.report = Report()
-        self.anamoly = Anomaly()
+        self.manager = Manager()
+        self.stat = Statistics()
 
         self.moduleDic = {}
         self.moduleDic.update(self.validator.modules())
@@ -66,17 +67,33 @@ class engine(object):
         if masks == "All":
             masks = self.masks_ROI()
         #iterate through patients
+
+        module = 'extent'
+        output = np.tile(-1, (len(patients), len(masks)))
+
+        i = 0
+        j = 0
         for key in patients:
+            j = 0
             for name in masks:
                 #pull mask from ROI
                 ROI_ID = self.ROIQ.get_id_by_patient_rep_id_name(key, name)
                 mask = self.ROIQ.get_mask(ROI_ID)
+                if mask is not None: # mask exists
+                    output[i][j] = manager.runModule(mask, module)
+                j++
+            i++
+
+        print(output)
+
+                '''
                 for module in modules:
                     valid = Validator.runModule(module, mask)
                     if valid[1] == False:
                         self.anamoly.insert(key, mask, valid[3], name)
                         print(self.anamoly.toScreen(key, mask))
                         input("press enter to continue: ") #more interaction with error may be needed
+                '''
 
     def run(self, modules = "All", masks = "All"):
         '''

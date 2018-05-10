@@ -14,7 +14,8 @@ class check_contiguity_extent(object):
     def description(self):
         return {self.name: self.function}
 
-    def check_integrity(self, patient):
+    #def check_integrity(self, patient):
+    def check_integrity(self, mask):
         '''
         Check that a mask is contiguous using projections along x, y, and z axes.
 

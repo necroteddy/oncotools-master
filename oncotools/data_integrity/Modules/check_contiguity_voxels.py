@@ -19,7 +19,8 @@ class check_contiguity_voxels(object):
     def description(self):
         return {self.name: self.function, self.name2(): self.function}
 
-    def check_integrity(self, patient, surface=True):
+    #def check_integrity(self, patient, surface=True):
+    def check_integrity(self, mask, surface=True):
         '''
         Check that a mask is contiguous using region neighbor-crawling technique.
 
