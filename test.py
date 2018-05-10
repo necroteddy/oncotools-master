@@ -14,6 +14,7 @@ from oncotools.connect import Database
 from oncotools.utils.query.patient_representations import PatientRepresentationsQueries
 from oncotools.utils.query.regions_of_interest import RegionsOfInterestQueries
 from oncotools.utils.query.assessments import AssessmentsQueries
+import oncotools.visualize as visual
 
 # Test directory
 TESTDIR = 'tests'
@@ -108,29 +109,39 @@ if __name__ == '__main__':
     #create patient  list
     patients = PRQ.get_patient_id_LUT()
     masks = ROIQ.get_roi_names()
-    module = 'extent'
+    #module = 'extent'
+    module = 'surface'
+    #module = 'volume'
     output = np.tile(-1, (10, len(masks)))#(len(patients), len(masks)))
     i = 0
     j = 0
+    v = False
     #print(len(patients))
     #print(len(masks))
     for key in patients:
         j = 0
-        print("Patient %f out of %f"%(i, len(patients)))
+        #print("Patient %f out of %f"%(i, len(patients)))
         for name in masks:
             #print("Patient %f, Mask %f"%(i, j))
             #pull mask from ROI
             ROI_ID = ROIQ.get_id_by_patient_rep_id_name(key, name)
             if ROI_ID is not None: # mask exists
+                print("Patient %f, Mask %f"%(i, j))
                 mask = ROIQ.get_mask(ROI_ID)
+                if v is False:
+                    print('visual start')
+                    visual.visualize_mask(mask, None, None, 0.1)
+                    v = True
+                    print('visual done')
                 valid = manager.runModule(mask, module)
                 output[i][j] = valid
+                print("State: %f"%(output[i][j]))
                 #print("Patient %f, Mask %f, State %f"%(i, j, output[i][j]))
             j = j + 1
         i = i + 1
         if i is 10:
             break;
-    np.savetxt('output.txt', output, fmt='%i')
+    np.savetxt('output2.txt', output, fmt='%i')
 
 
     '''

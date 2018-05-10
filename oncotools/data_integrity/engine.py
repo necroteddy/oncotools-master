@@ -4,6 +4,7 @@ from oncotools.utils.query.regions_of_interest import RegionsOfInterestQueries
 
 from oncotools.data_integrity.Manager import Manager
 from oncotools.data_integrity.Statistics import Statistics
+import oncotools.visualize as visual
 #from oncotools.data_integrity.Reader import Reader
 #import data
 
@@ -73,6 +74,7 @@ class engine(object):
 
         i = 0
         j = 0
+        v = False
         for key in patients:
             j = 0
             for name in masks:
@@ -81,6 +83,9 @@ class engine(object):
                 mask = self.ROIQ.get_mask(ROI_ID)
                 if mask is not None: # mask exists
                     output[i][j] = manager.runModule(mask, module)
+                    if v is False:
+                        visual.visualize_mask(mask)
+                        v = True
                 j++
             i++
 

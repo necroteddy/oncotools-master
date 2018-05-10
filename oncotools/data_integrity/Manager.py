@@ -15,7 +15,7 @@ class Manager(object):
     def __init__(self):
         self.dic = ['extent', 'surface', 'volume']
         self.extent = check_contiguity_extent()
-        self.voxels = check_contiguity_voxels()
+        self.voxel = check_contiguity_voxels()
         #make this dynamic later
 
     def getModules(self):
