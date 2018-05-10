@@ -94,7 +94,7 @@ if __name__ == '__main__':
     us = 'oncoguest'
     pw = '0ncosp@ceGuest'
     #connect to database
-    dbase = Database(db, us, pw) #how to close?
+    dbase = Database(None, None, db, us, pw) #how to close?
 
     #initialize query classes
     PRQ = PatientRepresentationsQueries(dbase)
@@ -107,8 +107,8 @@ if __name__ == '__main__':
     #itterate through patients
     for key in patients:
         assessement = AQ.get_assessment_names(key)
-        print(assessment)
-
+        print(assessement)
+    """
     # Parse the flags
     flags = []
     bad_flags = []
@@ -137,3 +137,4 @@ if __name__ == '__main__':
     # Run the tests!
     sys.stdout.write('Starting unit tests!\n')
     runner.run(test_suite)
+    """
