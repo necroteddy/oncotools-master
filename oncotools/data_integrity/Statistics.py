@@ -1,5 +1,4 @@
 import sys
-from oncotools.data_integrity.AnamalyData import Anomaly
 import pandas as pd
 
 '''
@@ -10,31 +9,31 @@ class Report():
     '''
         will be implemented later as we work out what stats need to be collected
     '''
-    
+
     def __init__(self):
-        self.data = Anomaly();
-              
+        self.data = None;
+
     def reportAll(self, module = "All"):
         '''
         Returns all reports to screen
         '''
         self.data.toScreen();
-        
+
     def tocsv(self, file):
         '''
         writes report of information to csv file
-        
+
         Keyword arguments:
             :file: name of file to write to
         '''
         towrite = self.data.topandas
         with open(file, 'w') as csvfile:
             towrite.to_csv(csvfile)
-        
+
     def loaddata(self, loaddata):
         '''
         reads data and loads from csv file
-        
+
         Keyword arguments:
             :loaddata: name of file to load from
         '''
