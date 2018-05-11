@@ -1,21 +1,12 @@
 import numpy as np
 
-class Integrity_Check(object):
+class Integrity_Module(object):
     def __init__(self):
         self.name = "Integrity_Check"
         self.function = "Basic Integrity Check Class. \n\t:mask:  mask object"
         self.description = {self.name: self.function}
 
-    def name(self):
-        return self.name
-
-    def function(self):
-        return self.function
-
-    def description(self):
-        return self.description
-
-    def check_integrity(self, patient):
+    def check_integrity(self, data):
         '''
         Basic Integrity Check function. Subclass should modify this function.
 

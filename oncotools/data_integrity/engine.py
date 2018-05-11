@@ -60,47 +60,67 @@ class engine(object):
             :masks:       (default='All') Which masks should be analysed?
             Options are "All" or an array of Roi masks names indicating which masks to look at use masks_ROI() to see list of masks
         '''
-        #create patient list
-        patients = self.PRQ.get_patient_id_LUT()
-
-        if modules == "All":
-            module = self.module_List()
-        if masks == "All":
-            masks = self.masks_ROI()
-        #iterate through patients
-
-        module = 'extent'
-        output = np.tile(-1, (len(patients), len(masks)))
-
+        #create patient  list
+        patients = PRQ.get_patient_id_LUT()
+        masks = ROIQ.get_roi_names()
+        module = 'dose'
+        output = []
+        #output = np.tile(-1, (10, len(masks)))#(len(patients), len(masks)))
         i = 0
-        j = 0
         v = False
+        #print(len(patients))
+        #print(len(masks))
         for key in patients:
             j = 0
-            for name in masks:
+            print("Patient %f out of %f"%(i, len(patients)))
+            RTS_information = np.array(RSQ.get_session_ids(key).to_array())
+            #print(RTS_information)
+            RTS_IDs = RTS_information[:,0]
+            row = []
+            for ID in RTS_IDs:
+                print("Patient %f, %s"%(i, ID))
+                dosegrid = RSQ.get_dose_grid(ID)
+                valid = manager.runModule(dosegrid, module)
+                row.append(valid)
+                #print(row)
+                j = j + 1
+            output.append(row)
+            #print(output)
+            #for name in masks2:
+                #print("Patient %f, Mask %f"%(i, j))
                 #pull mask from ROI
-                ROI_ID = self.ROIQ.get_id_by_patient_rep_id_name(key, name)
-                mask = self.ROIQ.get_mask(ROI_ID)
-                if mask is not None: # mask exists
-                    output[i][j] = manager.runModule(mask, module)
-                j++
-            i++
+                #ROI_ID = ROIQ.get_id_by_patient_rep_id_name(key, name)
+            '''
+                if ROI_ID is not None: # mask exists
+                    #print("Patient %f, Mask %f"%(i, j))
+                    tempmask = ROIQ.get_mask(ROI_ID)
+                    dosegrid = RSQ.get_dose_grid(patients[key])
+                    mask = DoseMask(tempmask, dosegrid).compute_dose_mask()
 
-        print(output)
+                    if v is False:
+                        print('visual start')
+                        visual.visualize_mask(mask, None, None, 0.1)
+                        v = True
+                        print('visual done')
 
-                '''
+                    valid = manager.runModule(mask, module)
+                    output[i][j] = valid
+                    #print("State: %f"%(output[i][j]))
+                    #print("Patient %f, Mask %f, State %f"%(i, j, output[i][j]))
+                j = j + 1
+            '''
+            i = i + 1
+            if i is 100:
+                break;
+        output = np.array(output)
+        np.savetxt('output2.txt', output, fmt='%i')
+
+
+        '''
         for key in patients:
-            for name in masks:
-                #pull mask from ROI
-                ROI_ID = self.ROIQ.get_id_by_patient_rep_id_name(key, name)
-                mask = self.ROIQ.get_mask(ROI_ID)
-                for module in modules:
-                    valid = Validator.runModule(module, mask)
-                    if valid[1] == False:
-                        self.anamoly.insert(key, mask, valid[3], name)
-                        print(self.anamoly.toScreen(key, mask))
-                        input("press enter to continue: ") #more interaction with error may be needed
-                '''
+            assessement = AQ.get_assessment_names(key)
+            print(assessement)
+        '''
 
     def run(self, modules = "All", masks = "All"):
         '''

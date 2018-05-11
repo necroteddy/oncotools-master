@@ -1,20 +1,13 @@
 import numpy as np
+from oncotools.data_integrity.Modules.Integrity_Module import Integrity_Module
 
-class check_contiguity_extent(object):
+class check_contiguity_extent(Integrity_Module):
     def __init__(self):
+        Integrity_Module.__init__
         self.name = "check_contiguity_extent(mask)"
         self.function = "Check that a mask is contiguous using projections along x, y, and z axes. \nPositional arguments: \n\t:mask:  mask object"
+        self.description = {self.name: self.function}
 
-    def name(self):
-        return self.name
-
-    def function(self):
-        return self.function
-
-    def description(self):
-        return {self.name: self.function}
-
-    #def check_integrity(self, patient):
     def check_integrity(self, mask):
         '''
         Check that a mask is contiguous using projections along x, y, and z axes.

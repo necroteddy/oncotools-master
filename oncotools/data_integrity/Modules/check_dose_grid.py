@@ -1,19 +1,12 @@
 import numpy as np
+from oncotools.data_integrity.Modules.Integrity_Module import Integrity_Module
 
-class check_dose_grid(object):
+class check_dose_grid(Integrity_Module):
     def __init__(self):
+        Integrity_Module.__init__
         self.name = "check_dose_grid"
         self.function = "Check Dose Grid Data. \n\t:dose grid: dose object"
         self.description = {self.name: self.function}
-
-    def name(self):
-        return self.name
-
-    def function(self):
-        return self.function
-
-    def description(self):
-        return self.description
 
     def check_integrity(self, dosegrid):
         '''

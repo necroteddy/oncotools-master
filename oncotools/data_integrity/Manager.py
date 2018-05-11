@@ -28,7 +28,7 @@ class Manager(object):
         return self.dic
 
     #def runModule(self, patient, module):
-    def runModule(self, mask, module):
+    def runModule(self, input, module):
         '''
         Runs selected modules
 
@@ -42,15 +42,15 @@ class Manager(object):
         for i in module:
             if module == 'extent':
                 #valid = check_contiguity_extent.check_integrity(patient)
-                valid = self.extent.check_integrity(mask)
+                valid = self.extent.check_integrity(input)
             elif module == 'surface':
                 #valid = check_contiguity_voxels.check_contiguity(patient, 'surface')
-                valid = self.voxel.check_integrity(mask, 'surface')
+                valid = self.voxel.check_integrity(input, 'surface')
             elif module == 'volume':
                 #valid = check_contiguity_voxels.check_contiguity(patient, 'volume')
-                valid = self.voxel.check_integrity(mask, 'volume')
+                valid = self.voxel.check_integrity(input, 'volume')
             elif module == 'dose':
-                valid = self.dosemax.check_integrity(mask)
+                valid = self.dosemax.check_integrity(input)
             return valid
 
 if __name__ =="__main__":

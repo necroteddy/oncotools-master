@@ -1,25 +1,16 @@
 import random
 import numpy as np
 from scipy.spatial import KDTree
+from oncotools.data_integrity.Modules.Integrity_Module import Integrity_Module
 
-class check_contiguity_voxels(object):
+class check_contiguity_voxels(Integrity_Module):
     def __init__(self):
+        Integrity_Module.__init__
         self.name = "check_contiguity_voxels(mask, surface)"
+        self.name2 = "check_contiguity_voxels(mask, volume)"
         self.function = "Check that a mask is contiguous using region neighbor-crawling technique. \nPositional arguments: \n\t:mask:  mask object \n\nKeyword arguments:\n\t:surface:   (default=True) If true, use the surface mask, else use the volume mask"
+        self.description = {self.name: self.function, self.name2: self.function}
 
-    def name(self):
-        return self.name
-
-    def name2():
-        return "check_contiguity_voxels(mask, volume)"
-
-    def function(self):
-        return self.function
-
-    def description(self):
-        return {self.name: self.function, self.name2(): self.function}
-
-    #def check_integrity(self, patient, surface=True):
     def check_integrity(self, mask, surface=True):
         '''
         Check that a mask is contiguous using region neighbor-crawling technique.
