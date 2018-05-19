@@ -42,17 +42,23 @@ class Report():
             self.data.insert(patient = row.patient, mask = row.mask, errortype = row.errortype, ROI = row.ROI)
 
 
-class Statistics():
+class ShowStats():
     def __init__(self, lst):
         self.statlist = lst
         self.numbTrue = -1
         self.numbFalse = -1
 
     def calcstats(self):
+        '''
+        function for stat preprocessing
+        '''
         self.numbTrue = sum(self.statlist)
         self.numbFalse = len(self.statlist) - self.numbTrue
 
-    def printstats(self):
+    def stoutstats(self):
+        '''
+        prints stats to standard out
+        '''
         if self.numTrue == -1:
             self.calcstats()
         else:
