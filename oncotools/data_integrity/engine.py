@@ -21,18 +21,6 @@ class engine(object):
         #connect to database
         self.dbase = Database(dr, ho, db, us, pw) #how to close?
 
-        #initialize query classes
-        #self.PRQ = PatientRepresentationsQueries(self.dbase)
-        #self.ROIQ = RegionsOfInterestQueries(self.dbase)
-
-        #initialize manager classes
-        #self.manager = Manager()
-        #self.stat = Statistics()
-
-        #self.moduleDic = {}
-        #self.moduleDic.update(self.validator.modules())
-        #make this dynamic later
-
     def modules(self):
         '''
         Prints avaiable modules to screen, with description of how to use
@@ -55,7 +43,7 @@ class engine(object):
         '''
         return self.ROIQ.get_roi_names()
 
-    def run(self, modules = "All", masks = "All"):
+    def run(self, patient_IDs = "All", datatype, modules = "All", outfile = "output.txt"):
         '''
         Runs data set through error detection modules prompting user every time error is detected
 
@@ -66,74 +54,28 @@ class engine(object):
             :masks:       (default='All') Which masks should be analysed?
             Options are "All" or an array of Roi masks names indicating which masks to look at use masks_ROI() to see list of masks
         '''
-        #initialize query classes
         PRQ = PatientRepresentationsQueries(self.dbase)
-        ROIQ = RegionsOfInterestQueries(self.dbase)
-        AQ = AssessmentsQueries(self.dbase)
-        RSQ = RadiotherapySessionsQueries(self.dbase)
+        # Get patient representation IDs from patient IDs
+        patient_representation_IDs = []
+        if patient_IDs == "All":
+            patient_representation_IDs = PRQ.get_patient_id_LUT()
+        else: # given patient id, find patient representation id
+            patient_ID_dict = PRQ.get_patient_rep_id_LUT()
+            for ID in patient_IDs:
+                PR_ID = patient_ID_dict[ID]
+            patient_representation_IDs.append(PR_ID)
+
         manager = Manager()
-
-        #create patient  list
-        patients = PRQ.get_patient_id_LUT()
-        masks = ROIQ.get_roi_names()
-        module = 'dose'
-        output = []
-        #output = np.tile(-1, (10, len(masks)))#(len(patients), len(masks)))
-        i = 0
-        v = False
-        #print(len(patients))
-        #print(len(masks))
-        for key in patients:
-            j = 0
-            print("Patient %f out of %f"%(i, len(patients)))
-            RTS_information = np.array(RSQ.get_session_ids(key).to_array())
-            #print(RTS_information)
-            RTS_IDs = RTS_information[:,0]
+        for ID in patient_representation_IDs:
+            patient_data = manager.find_data(ID, datatype)
             row = []
-            for ID in RTS_IDs:
-                print("Patient %f, %s"%(i, ID))
-                dosegrid = RSQ.get_dose_grid(ID)
-                valid = manager.runModule(dosegrid, module)
+            for data in patient_data:
+                valid = manager.runModule(data, module)
                 row.append(valid)
-                #print(row)
-                j = j + 1
             output.append(row)
-            #print(output)
-            #for name in masks2:
-                #print("Patient %f, Mask %f"%(i, j))
-                #pull mask from ROI
-                #ROI_ID = ROIQ.get_id_by_patient_rep_id_name(key, name)
-            '''
-                if ROI_ID is not None: # mask exists
-                    #print("Patient %f, Mask %f"%(i, j))
-                    tempmask = ROIQ.get_mask(ROI_ID)
-                    dosegrid = RSQ.get_dose_grid(patients[key])
-                    mask = DoseMask(tempmask, dosegrid).compute_dose_mask()
 
-                    if v is False:
-                        print('visual start')
-                        visual.visualize_mask(mask, None, None, 0.1)
-                        v = True
-                        print('visual done')
-
-                    valid = manager.runModule(mask, module)
-                    output[i][j] = valid
-                    #print("State: %f"%(output[i][j]))
-                    #print("Patient %f, Mask %f, State %f"%(i, j, output[i][j]))
-                j = j + 1
-            '''
-            i = i + 1
-            if i is 100:
-                break;
         output = np.array(output)
-        np.savetxt('output2.txt', output, fmt='%i')
-
-
-        '''
-        for key in patients:
-            assessement = AQ.get_assessment_names(key)
-            print(assessement)
-        '''
+        np.savetxt(outfile, output, fmt='%i')
 
     def report_compile(self):
         self.report.statCompile

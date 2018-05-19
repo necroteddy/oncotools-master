@@ -1,10 +1,12 @@
 from oncotools.data_integrity.Modules.check_contiguity_extent import check_contiguity_extent
 from oncotools.data_integrity.Modules.check_contiguity_voxels import check_contiguity_voxels
 from oncotools.data_integrity.Modules.check_dose_grid import check_dose_grid
-
+from oncotools.data_integrity.data.doses import doses_reader
+from oncotools.data_integrity.data.roi import roi_reader
+import sys
 
 '''
-The OncospaceValidator module contains the classes and methods needed to evaluate data integrity.
+The Manager module contains the classes and methods needed to evaluate data integrity.
 '''
 
 # Validator class ==================================================
@@ -16,10 +18,6 @@ class Manager(object):
 
     def __init__(self):
         self.dic = ['extent', 'surface', 'volume', 'dose']
-        self.extent = check_contiguity_extent()
-        self.voxel = check_contiguity_voxels()
-        self.dosemax = check_dose_grid()
-        #make this dynamic later
 
     def getModules(self):
         '''
@@ -41,17 +39,26 @@ class Manager(object):
         '''
         for i in module:
             if module == 'extent':
-                #valid = check_contiguity_extent.check_integrity(patient)
-                valid = self.extent.check_integrity(input)
+                valid = check_contiguity_extent.check_integrity(input)
             elif module == 'surface':
-                #valid = check_contiguity_voxels.check_contiguity(patient, 'surface')
-                valid = self.voxel.check_integrity(input, 'surface')
+                valid = check_contiguity_voxels.check_integrity(input, 'surface')
             elif module == 'volume':
-                #valid = check_contiguity_voxels.check_contiguity(patient, 'volume')
-                valid = self.voxel.check_integrity(input, 'volume')
+                valid = check_contiguity_voxels.check_integrity(input, 'volume')
             elif module == 'dose':
-                valid = self.dosemax.check_integrity(input)
+                valid = check_dose_grid.check_integrity(input)
+            else:
+                sys.stderr.write("Module chosen does not exist.")
             return valid
+
+    def find_data(ID, datatype):
+        if datatype == 'roi':
+            data = roi_reader(ID, datatype)
+        elif datatype == 'dosemask':
+            data = doses_reader(ID, datatype)
+        else:
+            sys.stderr.write("Reader for data type chosen does not exist.")
+        return data
+
 
 if __name__ =="__main__":
     t=Manager()
