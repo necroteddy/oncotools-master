@@ -64,7 +64,7 @@ class Manager(object):
         elif datatype == 'dosemask':
             data = data_doses.get_data(dbase, ID)
         elif datatype == 'assessments':
-            data = data_roi.get_data((dbase, ID)
+            data = data_roi.get_data(dbase, ID)
         else:
             sys.stderr.write("Reader for data type chosen does not exist.")
         return data
