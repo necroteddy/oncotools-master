@@ -1,7 +1,7 @@
 from oncotools.data_integrity.data.Query_Module import Query_Module
 from oncotools.utils.query.assessments import AssessmentsQueries
 
-class data_roi(Query_Module):
+class data_assessments(Query_Module):
     def __init__(self):
         self.name = "Query_Data"
         self.function = "Basic Data Query Class."

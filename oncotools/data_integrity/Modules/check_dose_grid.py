@@ -1,4 +1,3 @@
-import numpy as np
 from oncotools.data_integrity.Modules.Integrity_Module import Integrity_Module
 
 class check_dose_grid(Integrity_Module):
@@ -39,5 +38,5 @@ class check_dose_grid(Integrity_Module):
         if not valid: # Error
             message = 'Return: Error, ' + description + ' Invalid'
 
-        # Return generated (valid, message, errortype)
+        #return (valid, message, errortype)
         return valid
