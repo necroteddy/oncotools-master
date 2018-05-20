@@ -8,6 +8,9 @@ See full documentation `Documentation` folder. Integrated with Oncospace documen
 
 User needs to write two modules, a data query object and a integrity check object.
 
+Run using `python DataIntegrity --module --datatype --outfile`
+
+
 ### Query Module
 The purpose of these modules is to get the specific data type for the integrity modules.
 For example, `/data/data_doses.py` reads dosegrid data for specific patient representation IDs.
