@@ -52,7 +52,7 @@ class Manager(object):
                 sys.stderr.write("Module chosen does not exist.")
             return valid
     
-    def det_data_type(self):
+    def get_data_type(self):
         '''
         return list of avalable data type readers
         '''
