@@ -3,16 +3,10 @@ import sys
 sys.path.insert(0, '../../')
 
 from oncotools.connect import Database
-from oncotools.utils.query.patient_representations import PatientRepresentationsQueries
-from oncotools.utils.query.assessments import AssessmentsQueries
-from oncotools.data_elements.dose_map import DoseMask
-import oncotools.visualize as visual
 
 from oncotools.data_integrity.Manager import Manager
 from oncotools.data_integrity.Statistics import Statistics
 import oncotools.visualize as visual
-#from oncotools.data_integrity.Reader import Reader
-#import data
 
 class engine(object):
     def __init__(self, dr=None, ho=None, db='OncospaceHeadNeck', us='oncoguest', pw='0ncosp@ceGuest'):
@@ -22,7 +16,7 @@ class engine(object):
 
     def modules(self):
         '''
-        Prints avaiable modules to screen, with description of how to use
+        Prints avaiable modules to screen
         '''
         for i in self.manager.getModules():
             print(i)
