@@ -3,12 +3,25 @@ from oncotools.utils.query.radiotherapy_sessions import RadiotherapySessionsQuer
 import numpy as np
 
 class data_doses(Query_Module):
+    '''
+    Predefined query for dose of Radio therapy Sessions
+    '''
     def __init__(self):
         self.name = "Query_Data"
         self.function = "Basic Data Query Class."
         self.description = {self.name: self.function}
 
     def get_data(dbase, ID):
+        '''
+        gets dose data for specific patient
+        
+        Keyword arguments:
+            :dbase:     Database to connect to
+            A Database instance from oncotools.connect
+            
+            :ID:        Patient id
+            A patient representation id
+        '''
         #initialize query classes
         RSQ = RadiotherapySessionsQueries(dbase)
         RTS_information = np.array(RSQ.get_session_ids(ID).to_array())
