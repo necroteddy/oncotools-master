@@ -41,27 +41,32 @@ class Manager(object):
         '''
         for i in module:
             if module == 'extent':
-                valid = check_contiguity_extent.check_integrity(input)
+                check = check_contiguity_extent()
+                valid = check.check_integrity(input)
             elif module == 'surface':
-                valid = check_contiguity_voxels.check_integrity(input, 'surface')
+                check = check_contiguity_voxels()
+                valid = check.check_integrity(input, 'surface')
             elif module == 'volume':
-                valid = check_contiguity_voxels.check_integrity(input, 'volume')
+                check = check_contiguity_voxels()
+                valid = check.check_integrity(input, 'volume')
             elif module == 'dose':
-                valid = check_dose_grid.check_integrity(input)
+                check = check_dose_grid()
+                valid = check.check_integrity(input)
             else:
                 sys.stderr.write("Module chosen does not exist.")
             return valid
-    
+
     def get_data_type(self):
         '''
         return list of avalable data type readers
         '''
         return self.dic2
-            
-    def find_data(dbase, ID, datatype):
+
+    def find_data(self, dbase, ID, datatype):
+        data = None
         if datatype == 'roi':
             data = data_roi.get_data(dbase, ID)
-        elif datatype == 'dosemask':
+        elif datatype == 'doses':
             data = data_doses.get_data(dbase, ID)
         elif datatype == 'assessments':
             data = data_roi.get_data(dbase, ID)

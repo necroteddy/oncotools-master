@@ -1,5 +1,8 @@
 import argparse
-from oncotools.data_integrity import engine
+import sys
+sys.path.insert(0, '../../')
+
+from oncotools.data_integrity.engine import engine
 
 def get_args():
     '''
@@ -16,12 +19,13 @@ def get_args():
 
 if __name__ == '__main__':
     args = get_args()
+    engine = engine()
     if args.patient_id is None:
         id = "All"
     else:
         id = args.patient_ID
-    engine.run(id, args.datatype, args.module, args.outfile)
+    engine.run(args.datatype, id, args.module, args.outfile)
 
     if args.statistics is not None:
-        engine.report_compile()
+        engine.report_compile(outfile)
         engine.print_reports()

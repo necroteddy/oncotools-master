@@ -6,7 +6,7 @@ from oncotools.connect import Database
 
 from oncotools.data_integrity.Manager import Manager
 from oncotools.utils.query.patient_representations import PatientRepresentationsQueries
-from oncotools.data_integrity.Statistics import Statistics
+from oncotools.data_integrity.Statistics import Report
 
 class engine(object):
     def __init__(self, dr=None, ho=None, db='OncospaceHeadNeck', us='oncoguest', pw='0ncosp@ceGuest'):
@@ -26,7 +26,7 @@ class engine(object):
         Prints a list of all module names
         '''
         print(self.manager.getModules())
-            
+
     def data_List(self):
         '''
         Returns a list of all module names
@@ -49,7 +49,7 @@ class engine(object):
 
             :datatype:       (default='All') What should be analysed?
             Options are "All" or an array of data names indicating which masks to look at use data_List() to see list of masks
-            
+
             :outputfile:      (default='output.txt') Prints output to file
         '''
         PRQ = PatientRepresentationsQueries(self.dbase)
@@ -67,6 +67,7 @@ class engine(object):
         for ID in patient_representation_IDs:
             patient_data = self.manager.find_data(self.dbase, ID, datatype)
             row = []
+            print(ID)
             for data in patient_data:
                 valid = self.manager.runModule(data, module)
                 row.append(valid)
@@ -75,7 +76,8 @@ class engine(object):
         output = np.array(output)
         np.savetxt(outfile, output, fmt='%i')
 
-    def report_compile(self):
+    def report_compile(self, outfile):
+        self.report = Report(outfile)
         self.report.statCompile
 
     def print_reports(self):
