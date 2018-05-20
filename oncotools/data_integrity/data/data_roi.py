@@ -1,5 +1,5 @@
 class data_roi(Query_Module):
-    def __init__():
+    def __init__(self):
         self.name = "Query_Data"
         self.function = "Basic Data Query Class."
         self.description = {self.name: self.function}
