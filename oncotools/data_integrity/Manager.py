@@ -19,10 +19,11 @@ class Manager(object):
 
     def __init__(self):
         self.dic = ['extent', 'surface', 'volume', 'dose']
+        self.dic2 = ['roi', 'dosemask', 'assessments']
 
     def getModules(self):
         '''
-        return dictionary of modules
+        return list of modules
         '''
         return self.dic
 
@@ -50,13 +51,19 @@ class Manager(object):
             else:
                 sys.stderr.write("Module chosen does not exist.")
             return valid
-
+    
+    def det_data_type(self):
+        '''
+        return list of avalable data type readers
+        '''
+        return self.dic2
+            
     def find_data(dbase, ID, datatype):
         if datatype == 'roi':
             data = data_roi.get_data(dbase, ID)
         elif datatype == 'dosemask':
             data = data_doses.get_data(dbase, ID)
-        elif datatype == 'assesments':
+        elif datatype == 'assessments':
             data = data_roi.get_data((dbase, ID)
         else:
             sys.stderr.write("Reader for data type chosen does not exist.")
