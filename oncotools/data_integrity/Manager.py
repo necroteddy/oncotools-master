@@ -1,8 +1,9 @@
 from oncotools.data_integrity.Modules.check_contiguity_extent import check_contiguity_extent
 from oncotools.data_integrity.Modules.check_contiguity_voxels import check_contiguity_voxels
 from oncotools.data_integrity.Modules.check_dose_grid import check_dose_grid
-from oncotools.data_integrity.data.doses import doses_reader
-from oncotools.data_integrity.data.roi import roi_reader
+from oncotools.data_integrity.data.data_doses import data_doses
+from oncotools.data_integrity.data.data_roi import data_roi
+from oncotools.data_integrity.data.data_assessments import data_roi
 import sys
 
 '''
@@ -52,9 +53,11 @@ class Manager(object):
 
     def find_data(dbase, ID, datatype):
         if datatype == 'roi':
-            data = get_roi.get_data(dbase, ID)
+            data = data_roi.get_data(dbase, ID)
         elif datatype == 'dosemask':
-            data = get_doses.get_data(dbase, ID)
+            data = data_doses.get_data(dbase, ID)
+        elif datatype == 'assesments':
+            data = data_roi.get_data((dbase, ID)
         else:
             sys.stderr.write("Reader for data type chosen does not exist.")
         return data
