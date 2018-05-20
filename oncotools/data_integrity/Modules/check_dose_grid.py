@@ -1,4 +1,3 @@
-import numpy as np
 from oncotools.data_integrity.Modules.Integrity_Module import Integrity_Module
 
 class check_dose_grid(Integrity_Module):
