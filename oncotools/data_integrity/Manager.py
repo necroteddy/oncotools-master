@@ -1,10 +1,13 @@
+import sys
+sys.path.insert(0, '../../')
+
 from oncotools.data_integrity.Modules.check_contiguity_extent import check_contiguity_extent
 from oncotools.data_integrity.Modules.check_contiguity_voxels import check_contiguity_voxels
 from oncotools.data_integrity.Modules.check_dose_grid import check_dose_grid
 from oncotools.data_integrity.data.data_doses import data_doses
 from oncotools.data_integrity.data.data_roi import data_roi
 from oncotools.data_integrity.data.data_assessments import data_assessments
-import sys
+
 
 '''
 The Manager module contains the classes and methods needed to evaluate data integrity.
