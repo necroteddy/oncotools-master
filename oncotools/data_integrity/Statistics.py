@@ -7,17 +7,17 @@ The OncospaceStats module contains the classes and methods needed to evaluate th
 
 class Report():
     '''
-        will be implemented later as we work out what stats need to be collected
+        Reads data into dataframe and outputs results or writes it to file
     '''
 
-    def __init__(self):
-        self.data = None;
+    def __init__(self, data):
+        self.data = pd.read_csv(data);
 
     def reportAll(self, module = "All"):
         '''
         Returns all reports to screen
         '''
-        self.data.toScreen();
+        print(self.data.to_string());
 
     def tocsv(self, file):
         '''
@@ -42,7 +42,10 @@ class Report():
             self.data.insert(patient = row.patient, mask = row.mask, errortype = row.errortype, ROI = row.ROI)
 
 
-class ShowStats():
+class quickStats():
+    '''
+        Simple implementation that reads data and outputs quick stats
+    '''
     def __init__(self, lst):
         self.statlist = lst
         self.numbTrue = -1
