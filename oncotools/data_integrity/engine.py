@@ -5,8 +5,8 @@ sys.path.insert(0, '../../')
 from oncotools.connect import Database
 
 from oncotools.data_integrity.Manager import Manager
+from oncotools.utils.query.patient_representations import PatientRepresentationsQueries
 from oncotools.data_integrity.Statistics import Statistics
-import oncotools.visualize as visual
 
 class engine(object):
     def __init__(self, dr=None, ho=None, db='OncospaceHeadNeck', us='oncoguest', pw='0ncosp@ceGuest'):
@@ -39,7 +39,7 @@ class engine(object):
         '''
         return self.ROIQ.get_roi_names()
 
-    def run(self, patient_IDs = "All", datatype, modules = "All", outfile = "output.txt"):
+    def run(self, datatype, patient_IDs = "All", module = "All", outfile = "output.txt"):
         '''
         Runs data set through error detection modules prompting user every time error is detected
 
@@ -63,6 +63,7 @@ class engine(object):
                 PR_ID = patient_ID_dict[ID]
             patient_representation_IDs.append(PR_ID)
 
+        output = []
         for ID in patient_representation_IDs:
             patient_data = self.manager.find_data(self.dbase, ID, datatype)
             row = []
