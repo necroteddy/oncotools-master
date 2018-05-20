@@ -7,7 +7,7 @@ The OncospaceStats module contains the classes and methods needed to evaluate th
 
 class Report():
     '''
-        Basic report functionalist of reading data into dataframe and outputing results or writing to file
+        Basic report function of reading data into dataframe and outputing results or writing to file
     '''
 
     def __init__(self, data):
