@@ -67,7 +67,7 @@ class engine(object):
         for ID in patient_representation_IDs:
             patient_data = self.manager.find_data(self.dbase, ID, datatype)
             row = []
-            print(ID)
+            #print(ID)
             for data in patient_data:
                 valid = self.manager.runModule(data, module)
                 row.append(valid)
