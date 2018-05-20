@@ -44,7 +44,7 @@ def check_integrity(self, data):
 
     def check_integrity(self, data):
         ## TODO: integrity validation method
-        return (valid, message, errortype)
+        return valid
 ```
 
 ## TODO

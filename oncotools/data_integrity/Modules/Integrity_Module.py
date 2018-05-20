@@ -34,4 +34,4 @@ class Integrity_Module(object):
             message = 'Return: Error, ' + description + ' Mask Invalid'
 
         # Return generated (valid, message, errortype)
-        return (valid, message, errortype)
+        return valid #(valid, message, errortype)
