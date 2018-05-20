@@ -2,6 +2,9 @@ import argparse
 from oncotools.data_integrity import engine
 
 def get_args():
+	'''
+	function to read equivalent of command line arguments
+	'''
     parser = argparse.ArgumentParser(description="Data Integrity Anomaly Detection")
     parser.add_argument('--module', '-m', type=str, choices=['extent', 'voxel', 'dose'], help='Select data integrity module to run')
     parser.add_argument('--datatype', '-d', type=str, choices=['assessements', 'doses', 'roi'], help='Select data type to analyze')
