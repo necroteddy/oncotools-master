@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0, '../../')
+
 import argparse
 from oncotools.data_integrity import engine
 
