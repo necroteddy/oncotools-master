@@ -50,11 +50,11 @@ class Manager(object):
                 sys.stderr.write("Module chosen does not exist.")
             return valid
 
-    def find_data(ID, datatype):
+    def find_data(dbase, ID, datatype):
         if datatype == 'roi':
-            data = roi_reader(ID, datatype)
+            data = get_roi.get_data(dbase, ID)
         elif datatype == 'dosemask':
-            data = doses_reader(ID, datatype)
+            data = get_doses.get_data(dbase, ID)
         else:
             sys.stderr.write("Reader for data type chosen does not exist.")
         return data

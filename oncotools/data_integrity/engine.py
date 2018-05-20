@@ -67,7 +67,7 @@ class engine(object):
 
         manager = Manager()
         for ID in patient_representation_IDs:
-            patient_data = manager.find_data(ID, datatype)
+            patient_data = manager.find_data(self.dbase, ID, datatype)
             row = []
             for data in patient_data:
                 valid = manager.runModule(data, module)
