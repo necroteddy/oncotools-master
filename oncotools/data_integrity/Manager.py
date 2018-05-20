@@ -59,6 +59,19 @@ class Manager(object):
         return self.dic2
             
     def find_data(dbase, ID, datatype):
+        '''
+        Run selected predefined data queries
+        
+        Keywork arguments:
+            :dbase:     Database to connect to
+            A Database instance from oncotools.connect
+            
+            :ID:        Patient id
+            A patient representation id
+            
+            :datatype:  The data type to be queried
+            input to select the predefined data queries to run, get_data_type() returns a list of avalable ones
+        '''
         if datatype == 'roi':
             data = data_roi.get_data(dbase, ID)
         elif datatype == 'dosemask':
