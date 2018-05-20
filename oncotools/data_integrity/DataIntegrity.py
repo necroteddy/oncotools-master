@@ -2,9 +2,9 @@ import argparse
 from oncotools.data_integrity import engine
 
 def get_args():
-	'''
-	function to read equivalent of command line arguments
-	'''
+    '''
+    function to read equivalent of command line arguments
+    '''
     parser = argparse.ArgumentParser(description="Data Integrity Anomaly Detection")
     parser.add_argument('--module', '-m', type=str, choices=['extent', 'voxel', 'dose'], help='Select data integrity module to run')
     parser.add_argument('--datatype', '-d', type=str, choices=['assessements', 'doses', 'roi'], help='Select data type to analyze')
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         id = "All"
     else:
         id = args.patient_ID
-    engine.run(id, args.datatype, args.module, args.outfile):
+    engine.run(id, args.datatype, args.module, args.outfile)
 
     if args.statistics is not None:
         engine.report_compile()
