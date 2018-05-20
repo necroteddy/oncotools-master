@@ -16,7 +16,7 @@ class engine(object):
 
     def modules(self):
         '''
-        Prints avaiable modules to screen, with description of how to use
+        Prints avaiable modules to screen
         '''
         for i in self.manager.getModules():
             print(i)
