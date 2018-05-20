@@ -4,8 +4,6 @@ sys.path.insert(0, '../../')
 
 from oncotools.connect import Database
 from oncotools.utils.query.patient_representations import PatientRepresentationsQueries
-from oncotools.utils.query.regions_of_interest import RegionsOfInterestQueries
-from oncotools.utils.query.radiotherapy_sessions import RadiotherapySessionsQueries
 from oncotools.utils.query.assessments import AssessmentsQueries
 from oncotools.data_elements.dose_map import DoseMask
 import oncotools.visualize as visual
@@ -19,23 +17,27 @@ import oncotools.visualize as visual
 class engine(object):
     def __init__(self, dr=None, ho=None, db='OncospaceHeadNeck', us='oncoguest', pw='0ncosp@ceGuest'):
         #connect to database
-        self.dbase = Database(dr, ho, db, us, pw) #how to close?
+        self.dbase = Database(dr, ho, db, us, pw)
+        self.manager = Manager()
 
     def modules(self):
         '''
         Prints avaiable modules to screen, with description of how to use
         '''
-        for key in self.moduleDic:
-            print(key)
-            print(self.moduleDic[key])
+        for i in self.manager.getModules():
+            print(i)
 
     def module_List(self):
         '''
+        Prints a list of all module names
+        '''
+        print(self.manager.getModules())
+            
+    def data_List(self):
+        '''
         Returns a list of all module names
         '''
-        output = []
-        for key in self.moduleDic:
-            output.append(key)
+        print(self.manager.get_data_type())
 
     def masks_ROI(self):
         '''
@@ -51,8 +53,10 @@ class engine(object):
             :modules:    (default='All') Which modules should be used?
             Options are "All" or an array of modules indicating which modules to use module_List() to see list
 
-            :masks:       (default='All') Which masks should be analysed?
-            Options are "All" or an array of Roi masks names indicating which masks to look at use masks_ROI() to see list of masks
+            :datatype:       (default='All') What should be analysed?
+            Options are "All" or an array of data names indicating which masks to look at use data_List() to see list of masks
+            
+            :outputfile:      (default='output.txt') Prints output to file
         '''
         PRQ = PatientRepresentationsQueries(self.dbase)
         # Get patient representation IDs from patient IDs
@@ -65,12 +69,11 @@ class engine(object):
                 PR_ID = patient_ID_dict[ID]
             patient_representation_IDs.append(PR_ID)
 
-        manager = Manager()
         for ID in patient_representation_IDs:
-            patient_data = manager.find_data(self.dbase, ID, datatype)
+            patient_data = self.manager.find_data(self.dbase, ID, datatype)
             row = []
             for data in patient_data:
-                valid = manager.runModule(data, module)
+                valid = self.manager.runModule(data, module)
                 row.append(valid)
             output.append(row)
 
