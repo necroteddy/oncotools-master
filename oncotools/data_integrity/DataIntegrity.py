@@ -4,29 +4,21 @@ from oncotools.data_integrity import engine
 def get_args():
     parser = argparse.ArgumentParser(description="Data Integrity Anomaly Detection")
     parser.add_argument('--module', '-m', type=str, choices=['extent', 'voxel', 'dose'], help='Select data integrity module to run')
-    parser.add_argument('--data', '-d', type=str, default=None, help='Read from data file instead of database')
+    parser.add_argument('--datatype', '-d', type=str, choices=['assessements', 'doses', 'roi'], help='Select data type to analyze')
+    parser.add_argument('--outfile', '-o', type=str, help='Data output file')
+    parser.add_argument('--patient-id', '-p', type=int, help='Look at specific patient id, default looks at all patients')
     parser.add_argument('--statistics', '-s')
-
-    parser.add_argument('--')
-
-
-    parser.add_argument('--read', '-r', type=str, choices=['database', 'file'], default='database', help='')
-    parser.add_argument('--data-file')
-    parser.add_argument('--write-database')
-    parser.add_argument('--database-file')
-    parser.add_argument('--print-patients')
-    parser.add_argument('--')
     args = parser.parse_args()
     return args
 
 if __name__ == '__main__':
     args = get_args()
-    engine.readData()
-    if args.data is None:
-        engine.readData()
-        engine.checkData(args.module)
-        engine.statistics()
+    if args.patient_id is None:
+        id = "All"
     else:
-        engine.readFile()
-        engine.checkData(args.module)
-        engine.statistics()
+        id = args.patient_ID
+    engine.run(id, args.datatype, args.module, args.outfile):
+
+    if args.statistics is not None:
+        engine.report_compile()
+        engine.print_reports()
