@@ -39,5 +39,4 @@ class check_dose_grid(Integrity_Module):
         if not valid: # Error
             message = 'Return: Error, ' + description + ' Invalid'
 
-        # Return generated (valid, message, errortype)
-        return valid
+        return (valid, message, errortype)
