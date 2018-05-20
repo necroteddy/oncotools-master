@@ -47,4 +47,4 @@ class check_contiguity_extent(Integrity_Module):
         else:
             errortype = None
 
-        return (valid, message, errortype)
+        return valid #(valid, message, errortype)
