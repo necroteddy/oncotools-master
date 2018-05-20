@@ -1,12 +1,16 @@
+from oncotools.data_integrity.data.Query_Module import Query_Module
+from oncotools.utils.query.radiotherapy_sessions import RadiotherapySessionsQueries
+import numpy as np
+
 class data_doses(Query_Module):
-    def __init__():
+    def __init__(self):
         self.name = "Query_Data"
         self.function = "Basic Data Query Class."
         self.description = {self.name: self.function}
 
     def get_data(dbase, ID):
         #initialize query classes
-        RSQ = RadiotherapySessionsQueries(self.dbase)
+        RSQ = RadiotherapySessionsQueries(dbase)
         RTS_information = np.array(RSQ.get_session_ids(ID).to_array())
         RTS_IDs = RTS_information[:,0]
         data = []
