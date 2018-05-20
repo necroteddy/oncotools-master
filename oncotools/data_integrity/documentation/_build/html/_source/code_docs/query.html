@@ -1,0 +1,898 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Predefined queries &mdash; oncotools 2.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="oncotools 2.0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Source Code Documentation" href="../source.html"/>
+        <link rel="next" title="Data elements" href="data_elements.html"/>
+        <link rel="prev" title="Connect to the database" href="connect.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> oncotools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../source.html">Source Code Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="connect.html">Connect to the database</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Predefined queries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#assessments">Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patient-representations">Patient Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#regions-of-interest">Regions Of Interest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radiotherapy-sessions">Radiotherapy Sessions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_elements.html">Data elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transform.html">Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Sample scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../radio_morphology.html">Radio-morphology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../radio_morphology.html#features">Features</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">oncotools</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../source.html">Source Code Documentation</a> &raquo;</li>
+        
+      <li>Predefined queries</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/_source/code_docs/query.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-utils.query">
+<span id="predefined-queries"></span><span id="query"></span><h1>Predefined queries<a class="headerlink" href="#module-utils.query" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="assessments">
+<h2>Assessments<a class="headerlink" href="#assessments" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="utils.query.assessments.AssessmentsQueries">
+<em class="property">class </em><code class="descclassname">utils.query.assessments.</code><code class="descname">AssessmentsQueries</code><span class="sig-paren">(</span><em>oncospace</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.assessments.AssessmentsQueries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries on the <cite>Assessments</cite> table.</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">oncospace:</th><td class="field-body">Database class connected to an Oncospace database</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl class="method">
+<dt id="utils.query.assessments.AssessmentsQueries.get_assessment_names">
+<code class="descname">get_assessment_names</code><span class="sig-paren">(</span><em>patientID=None</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.assessments.AssessmentsQueries.get_assessment_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of all of a patient&#8217;s assessment names.</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">patID:</th><td class="field-body">patient ID</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd>Table of names and count of all assessments</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.assessments.AssessmentsQueries.get_assessments">
+<code class="descname">get_assessments</code><span class="sig-paren">(</span><em>patID</em>, <em>name=None</em>, <em>startDate=None</em>, <em>stopDate=None</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.assessments.AssessmentsQueries.get_assessments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all of a patient&#8217;s assessments.</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">patID:</th><td class="field-body">patient ID</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Keyword arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">name of the assessment to query
+Can specify part of name. Case insensitive.
+(if none given, will get all assessments)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">startDate:</th><td class="field-body">lower date boundary</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">stopDate:</th><td class="field-body">upper date boundary</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd>Table of dates and assessment values</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.assessments.AssessmentsQueries.get_binned_outcomes">
+<code class="descname">get_binned_outcomes</code><span class="sig-paren">(</span><em>name, bins=[-30, 7, 45, 90, 180, 300, 500], labels=['baseline', 'onTreatment', 'endOfTreatment', 'acute', 'postacute', 'oneYear']</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.assessments.AssessmentsQueries.get_binned_outcomes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a table of outcomes, binned by specified time intervals.</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">name of the assessment to query.</td>
+</tr>
+</tbody>
+</table>
+<p class="last">Can specify part of name. Case insensitive.</p>
+</dd>
+<dt>Keyword arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bins:</th><td class="field-body">bounds of the bins NOTE: (must have length len(labels)+1)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">labels:</th><td class="field-body">labels for each time bin</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd>Table of date ranges and assessment values</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="patient-representations">
+<h2>Patient Representations<a class="headerlink" href="#patient-representations" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="utils.query.patient_representations.PatientRepresentationsQueries">
+<em class="property">class </em><code class="descclassname">utils.query.patient_representations.</code><code class="descname">PatientRepresentationsQueries</code><span class="sig-paren">(</span><em>oncospace</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.patient_representations.PatientRepresentationsQueries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries on the <cite>PatientRepresentations</cite> table.</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">oncospace:</th><td class="field-body">Database class connected to an Oncospace database</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl class="method">
+<dt id="utils.query.patient_representations.PatientRepresentationsQueries.get_all_patient_representation_ids">
+<code class="descname">get_all_patient_representation_ids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.patient_representations.PatientRepresentationsQueries.get_all_patient_representation_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of all PatientRepresentation IDs and corresponding patient IDs.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>Table of patientRepID&#8217;s and patientID&#8217;s</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.patient_representations.PatientRepresentationsQueries.get_patient_id_LUT">
+<code class="descname">get_patient_id_LUT</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.patient_representations.PatientRepresentationsQueries.get_patient_id_LUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a LUT of patient representation ID to patient ID</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>Dictionary mapping patientRepID to patientID</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.patient_representations.PatientRepresentationsQueries.get_patient_rep_id_LUT">
+<code class="descname">get_patient_rep_id_LUT</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.patient_representations.PatientRepresentationsQueries.get_patient_rep_id_LUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a LUT of patient ID to patient representation IDs</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>Dictionary mapping patientID to list of patientRepID</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.patient_representations.PatientRepresentationsQueries.get_patient_representation">
+<code class="descname">get_patient_representation</code><span class="sig-paren">(</span><em>patientRepID</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.patient_representations.PatientRepresentationsQueries.get_patient_representation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fields associated to a patient representation.</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">patientRepID:</th><td class="field-body">patient representation ID</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><p class="first">Dictionary containing fields of a patient representation</p>
+<dl class="last docutils">
+<dt>Keys:</dt>
+<dd><p class="first">patientRepID</p>
+<p>patientID</p>
+<p>xStart, yStart, zStart</p>
+<p>xVoxelSize, yVoxelSize, zVoxelSize</p>
+<p class="last">xDimension, yDimension, zDimension</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="regions-of-interest">
+<h2>Regions Of Interest<a class="headerlink" href="#regions-of-interest" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="utils.query.regions_of_interest.RegionsOfInterestQueries">
+<em class="property">class </em><code class="descclassname">utils.query.regions_of_interest.</code><code class="descname">RegionsOfInterestQueries</code><span class="sig-paren">(</span><em>oncospace</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.regions_of_interest.RegionsOfInterestQueries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries on the <cite>RegionsOfInterest</cite> table.</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">oncospace:</th><td class="field-body">Database class connected to an Oncospace database</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl class="method">
+<dt id="utils.query.regions_of_interest.RegionsOfInterestQueries.get_dvh">
+<code class="descname">get_dvh</code><span class="sig-paren">(</span><em>doseSummaryID=None</em>, <em>rtSessionID=None</em>, <em>roiID=None</em>, <em>cumulative=True</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.regions_of_interest.RegionsOfInterestQueries.get_dvh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query for a DVH and construct a <cite>dvh</cite> object with that data.</p>
+<dl class="docutils">
+<dt>Keyword arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">doseSummaryID:</th><td class="field-body">doseSummaryID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">rtSessionID:</th><td class="field-body">radiotherapySessionID</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">roiID:</th><td class="field-body">regionOfInterestID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">cumulative:</th><td class="field-body">True/False for cumulative or differential DVH</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><cite>dvh</cite> object with data queried from database</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.regions_of_interest.RegionsOfInterestQueries.get_id_by_patient_rep_id_name">
+<code class="descname">get_id_by_patient_rep_id_name</code><span class="sig-paren">(</span><em>patientRepID</em>, <em>roiName</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.regions_of_interest.RegionsOfInterestQueries.get_id_by_patient_rep_id_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ROI IDs by patientRepID and ROI name.</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">patientRepID:</th><td class="field-body">patient representation ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">roiName:</th><td class="field-body">name of the region of interest</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">roiID:</th><td class="field-body">ID of ROI associated with that patient</td>
+</tr>
+<tr class="field-even field"><th class="field-name">None:</th><td class="field-body">if no ROI&#8217;s were found</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Exception:</th><td class="field-body">if multiple ROI&#8217;s were found</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.regions_of_interest.RegionsOfInterestQueries.get_ids_by_name">
+<code class="descname">get_ids_by_name</code><span class="sig-paren">(</span><em>names</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.regions_of_interest.RegionsOfInterestQueries.get_ids_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ROI IDs by ROI name.</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body">name (or list of names) of the ROI</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><cite>Results</cite> object with columns patientID,
+patientRepID, roiID, and roiName</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.regions_of_interest.RegionsOfInterestQueries.get_ids_by_patient_rep_id_name">
+<code class="descname">get_ids_by_patient_rep_id_name</code><span class="sig-paren">(</span><em>patientRepID</em>, <em>roiName</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.regions_of_interest.RegionsOfInterestQueries.get_ids_by_patient_rep_id_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ROI IDs by patientRepID and ROI name.</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">patientRepID:</th><td class="field-body">patient representation ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">roiName:</th><td class="field-body">name of the region of interest</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">roiID:</th><td class="field-body">ID of ROI associated with that patient</td>
+</tr>
+<tr class="field-even field"><th class="field-name">None:</th><td class="field-body">if no ROI&#8217;s were found</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.regions_of_interest.RegionsOfInterestQueries.get_mask">
+<code class="descname">get_mask</code><span class="sig-paren">(</span><em>roiID</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.regions_of_interest.RegionsOfInterestQueries.get_mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an ROI object corresponding to a roiID.</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">roiID:</th><td class="field-body">ID corresponding to the ROI mask</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd>Mask associated with the roi ID</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.regions_of_interest.RegionsOfInterestQueries.get_mask_representation">
+<code class="descname">get_mask_representation</code><span class="sig-paren">(</span><em>patientRepID=None</em>, <em>roiID=None</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.regions_of_interest.RegionsOfInterestQueries.get_mask_representation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the fields associated to a patient representation.</p>
+<dl class="docutils">
+<dt>Keyword arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">patientRepID:</th><td class="field-body">patient representation</td>
+</tr>
+<tr class="field-even field"><th class="field-name">roiID:</th><td class="field-body">region of interest ID</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><p class="first">Dictionary containing fields of a patient representation</p>
+<dl class="last docutils">
+<dt>Keys:</dt>
+<dd><p class="first">patientRepID</p>
+<p>patientID</p>
+<p>xStart, yStart, zStart</p>
+<p>xVoxelSize, yVoxelSize, zVoxelSize</p>
+<p class="last">xDimension, yDimension, zDimension</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.regions_of_interest.RegionsOfInterestQueries.get_mask_rle">
+<code class="descname">get_mask_rle</code><span class="sig-paren">(</span><em>roiID</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.regions_of_interest.RegionsOfInterestQueries.get_mask_rle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a run-length encoded ROI binary mask.
+Returned in the same format as stored in Oncospace</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">roiID:</th><td class="field-body">region of interest ID</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd>Array of run-length encoded mask</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.regions_of_interest.RegionsOfInterestQueries.get_masks">
+<code class="descname">get_masks</code><span class="sig-paren">(</span><em>prepID</em>, <em>regs</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.regions_of_interest.RegionsOfInterestQueries.get_masks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query a patient&#8217;s ROIs</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">prepID:</th><td class="field-body">patient representation ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">regs:</th><td class="field-body">ROI name, or list of ROI names</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">masks:</th><td class="field-body">dictionary with ROI name (key) and Masks (value)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">not_found:</th><td class="field-body">list of ROIs that were not found</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.regions_of_interest.RegionsOfInterestQueries.get_patient_rep_id">
+<code class="descname">get_patient_rep_id</code><span class="sig-paren">(</span><em>roiID</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.regions_of_interest.RegionsOfInterestQueries.get_patient_rep_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the patient representation ID corresponding to an ROI ID.</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">roiID:</th><td class="field-body">ROI ID</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd>Patient represetation corresponding to the ROI ID</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.regions_of_interest.RegionsOfInterestQueries.get_patient_rep_ids_with_rois">
+<code class="descname">get_patient_rep_ids_with_rois</code><span class="sig-paren">(</span><em>rois</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.regions_of_interest.RegionsOfInterestQueries.get_patient_rep_ids_with_rois" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of patientRepID&#8217;s that have ALL given ROIs</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rois:</th><td class="field-body">a single ROI name or list of ROI names</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd>List of patient representation IDs with all ROIs</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.regions_of_interest.RegionsOfInterestQueries.get_roi">
+<code class="descname">get_roi</code><span class="sig-paren">(</span><em>roiID=None</em>, <em>mask=None</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.regions_of_interest.RegionsOfInterestQueries.get_roi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an ROI object corresponding to a roiID.</p>
+<p>The only necessary parameter is the <cite>roiID</cite>.</p>
+<dl class="docutils">
+<dt>Keyword arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">roiID:</th><td class="field-body">ID corresponding to the ROI mask</td>
+</tr>
+<tr class="field-even field"><th class="field-name">mask:</th><td class="field-body">run-length-encoded representation of the ROI mask</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><cite>roi</cite> instance related to the roi ID</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.regions_of_interest.RegionsOfInterestQueries.get_roi_names">
+<code class="descname">get_roi_names</code><span class="sig-paren">(</span><em>patientRepID=None</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.regions_of_interest.RegionsOfInterestQueries.get_roi_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all region of interest (ROI) names.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>List of all ROI names</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.regions_of_interest.RegionsOfInterestQueries.get_rois">
+<code class="descname">get_rois</code><span class="sig-paren">(</span><em>prepID</em>, <em>regs</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.regions_of_interest.RegionsOfInterestQueries.get_rois" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query a patient&#8217;s ROIs</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">prepID:</th><td class="field-body">patient representation ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">regs:</th><td class="field-body">ROI name, or list of ROI names</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">masks:</th><td class="field-body">dictionary with ROI name (key) and Rois (value)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">not_found:</th><td class="field-body">list of ROIs that were not found</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="radiotherapy-sessions">
+<h2>Radiotherapy Sessions<a class="headerlink" href="#radiotherapy-sessions" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="utils.query.radiotherapy_sessions.RadiotherapySessionsQueries">
+<em class="property">class </em><code class="descclassname">utils.query.radiotherapy_sessions.</code><code class="descname">RadiotherapySessionsQueries</code><span class="sig-paren">(</span><em>oncospace</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.radiotherapy_sessions.RadiotherapySessionsQueries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries on the <cite>RadiotherapySessions</cite> table</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">oncospace:</th><td class="field-body">Database class connected to an Oncospace database</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl class="method">
+<dt id="utils.query.radiotherapy_sessions.RadiotherapySessionsQueries.get_dose">
+<code class="descname">get_dose</code><span class="sig-paren">(</span><em>patientRepID</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.radiotherapy_sessions.RadiotherapySessionsQueries.get_dose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all Dose objects associated with a patient representation</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">patientRepID:</th><td class="field-body">patient representation ID</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd>Dictionary of RTS description: Dose object</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.radiotherapy_sessions.RadiotherapySessionsQueries.get_dose_grid">
+<code class="descname">get_dose_grid</code><span class="sig-paren">(</span><em>rtSessionID</em>, <em>output=None</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.radiotherapy_sessions.RadiotherapySessionsQueries.get_dose_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the dose grid associated with a RTS ID</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtSessionID:</th><td class="field-body">an integer, or a comma-separated string of patientIDs,
+e.g., &#8220;1,2,3,4&#8221;</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Keyword arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">output:</th><td class="field-body">file name to write the dose grid to.
+Doesn&#8217;t output dose grid if argument is not given.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">dose:</th><td class="field-body">a dose.dose() instance.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="utils.query.radiotherapy_sessions.RadiotherapySessionsQueries.get_session_ids">
+<code class="descname">get_session_ids</code><span class="sig-paren">(</span><em>patientRepID</em><span class="sig-paren">)</span><a class="headerlink" href="#utils.query.radiotherapy_sessions.RadiotherapySessionsQueries.get_session_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the radiotherapy session (RTS) ID&#8217;s
+related to the patient representation ID</p>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">patientRepID:</th><td class="field-body">patient representation ID</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd>List of RTS ID&#8217;s associated with the patient</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="data_elements.html" class="btn btn-neutral float-right" title="Data elements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="connect.html" class="btn btn-neutral" title="Connect to the database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, oncotools.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

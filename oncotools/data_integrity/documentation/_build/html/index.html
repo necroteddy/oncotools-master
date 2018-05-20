@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oncotools &mdash; oncotools 2.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="oncotools 2.0.1 documentation" href="#"/>
+        <link rel="next" title="Installation" href="_source/install.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> oncotools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="_source/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_source/source.html">Source Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_source/examples.html">Sample scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_source/radio_morphology.html">Radio-morphology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_source/radio_morphology.html#features">Features</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">oncotools</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>oncotools</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="oncotools">
+<h1>oncotools<a class="headerlink" href="#oncotools" title="Permalink to this headline">¶</a></h1>
+<p>A Python library for interaction with the Oncospace Database,
+image transformations, calculation of spatial dose features, and machine learning analysis.</p>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>This package makes it possible to:</p>
+<ul class="simple">
+<li>connect to and query the Oncospace SQL database</li>
+<li>write simple scripts to easily interact with the data</li>
+<li>analyze the integrity of the data</li>
+<li>perform various types of analysis, including dosimetric and radio-morphologic analysis</li>
+</ul>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="_source/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_source/source.html">Source Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_source/code_docs/connect.html">Connect to the database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/connect.html#results">Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/connect.html#database">Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/connect.html#databasemanager">DatabaseManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_source/code_docs/query.html">Predefined queries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/query.html#assessments">Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/query.html#patient-representations">Patient Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/query.html#regions-of-interest">Regions Of Interest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/query.html#radiotherapy-sessions">Radiotherapy Sessions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_source/code_docs/data_elements.html">Data elements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/data_elements.html#region-of-interest-roi">Region of Interest (ROI)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/data_elements.html#mask">Mask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/data_elements.html#module-data_elements.dose">Dose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/data_elements.html#module-data_elements.dose_map">Dose Mask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/data_elements.html#dose-volume-histogram-dvh">Dose Volume Histogram (DVH)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_source/code_docs/transform.html">Transform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/transform.html#general">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/transform.html#partitioning">Partitioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/transform.html#scaling">Scaling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_source/code_docs/features.html">Radio-morphology Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/features.html#feature-base-class">Feature Base Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/features.html#center-of-mass-feature">Center of Mass Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/features.html#dvh-feature">DVH Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/features.html#octant-shells-feature">Octant-Shells Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/features.html#slice-feature">Slice Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/features.html#superior-inferior-feature">Superior-Inferior Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/code_docs/features.html#volumetric-shells-feature">Volumetric Shells Feature</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_source/examples.html">Sample scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_source/sample_code/example_connect.html">Connecting to the database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_source/sample_code/example_connect.html#using-the-database-class">Using the <cite>Database</cite> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/sample_code/example_connect.html#using-the-databasemanager-class">Using the <cite>DatabaseManager</cite> class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/sample_code/example_connect.html#using-the-results-class">Using the <cite>Results</cite> class</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_source/radio_morphology.html">Radio-morphology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_source/radio_morphology.html#features">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_source/radio_morphology.html#features-base-class">Features Base Class</a></li>
+</ul>
+</li>
+<li class="toctree-l1">Data Integrity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_source/Documentation/engine.html">Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_source/Documentation/DataIntegrity.html">DataIntegrity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_source/Documentation/Manager.html">ModuleManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_source/Documentation/Statistics.html">Statistics</a></li>
+<li class="toctree-l2">Integrity checks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_source/Documentation/Modules/Integrity_Module.html">Integrity Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/Documentation/Modules/check_contiguity_extent.html">check contiguity extent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/Documentation/Modules/check_contiguity_voxels.html">check contiguity voxels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/Documentation/Modules/check_dose_grid.html">check dose grid</a></li>
+</ul>
+</li>
+<li class="toctree-l2">Data queries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_source/Documentation/data/Query_Module.html">Query Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/Documentation/data/data_roi.html">Data roi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/Documentation/data/data_doses.html">Data doses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_source/Documentation/data/data_assessments.html">Data assessments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="search">
+<h1>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="_source/install.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, oncotools.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

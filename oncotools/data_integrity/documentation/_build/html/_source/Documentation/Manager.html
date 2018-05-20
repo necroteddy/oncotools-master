@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Manager</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Manager</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cvincent%20qi%5Cworkspace%5Cfinal_version%5Concotools-master-master%5Concotools%5Cdata_integrity%5Cmanager.py">c:\users\vincent qi\workspace\final_version\oncotools-master-master\oncotools\data_integrity\manager.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="Manager.html#Manager">Manager</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Manager">class <strong>Manager</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;manager&nbsp;class&nbsp;runs&nbsp;the&nbsp;appropriate&nbsp;module.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Manager-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Manager-find_data"><strong>find_data</strong></a>(dbase, ID, datatype)</dt><dd><tt>Run&nbsp;selected&nbsp;predefined&nbsp;data&nbsp;queries<br>
+&nbsp;<br>
+Keywork&nbsp;arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:dbase:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Database&nbsp;to&nbsp;connect&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;Database&nbsp;instance&nbsp;from&nbsp;oncotools.connect<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:ID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Patient&nbsp;id<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;patient&nbsp;representation&nbsp;id<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:datatype:&nbsp;&nbsp;The&nbsp;data&nbsp;type&nbsp;to&nbsp;be&nbsp;queried<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;to&nbsp;select&nbsp;the&nbsp;predefined&nbsp;data&nbsp;queries&nbsp;to&nbsp;run,&nbsp;<a href="#Manager-get_data_type">get_data_type</a>()&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;avalable&nbsp;ones</tt></dd></dl>
+
+<dl><dt><a name="Manager-getModules"><strong>getModules</strong></a>(self)</dt><dd><tt>return&nbsp;list&nbsp;of&nbsp;modules</tt></dd></dl>
+
+<dl><dt><a name="Manager-get_data_type"><strong>get_data_type</strong></a>(self)</dt><dd><tt>return&nbsp;list&nbsp;of&nbsp;avalable&nbsp;data&nbsp;type&nbsp;readers</tt></dd></dl>
+
+<dl><dt><a name="Manager-runModule"><strong>runModule</strong></a>(self, input, module)</dt><dd><tt>Runs&nbsp;selected&nbsp;modules<br>
+&nbsp;<br>
+Keyword&nbsp;arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:module:&nbsp;&nbsp;&nbsp;&nbsp;Which&nbsp;modules&nbsp;whould&nbsp;be&nbsp;used?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;array&nbsp;of&nbsp;modules&nbsp;which&nbsp;will&nbsp;be&nbsp;run<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:mask:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;masks&nbsp;that&nbsp;will&nbsp;be&nbsp;analysed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;an&nbsp;array&nbsp;of&nbsp;Roi&nbsp;masks&nbsp;names&nbsp;indicating&nbsp;which&nbsp;masks&nbsp;to&nbsp;look&nbsp;at&nbsp;use</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

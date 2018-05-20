@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Statistics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Statistics</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cvincent%20qi%5Cworkspace%5Cfinal_version%5Concotools-master-master%5Concotools%5Cdata_integrity%5Cstatistics.py">c:\users\vincent qi\workspace\final_version\oncotools-master-master\oncotools\data_integrity\statistics.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="pandas.html">pandas</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="Statistics.html#Report">Report</a>
+</font></dt><dt><font face="helvetica, arial"><a href="Statistics.html#quickStats">quickStats</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Report">class <strong>Report</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Basic&nbsp;report&nbsp;function&nbsp;of&nbsp;reading&nbsp;data&nbsp;into&nbsp;dataframe&nbsp;and&nbsp;outputing&nbsp;results&nbsp;or&nbsp;writing&nbsp;to&nbsp;file<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Report-__init__"><strong>__init__</strong></a>(self, data)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Report-loaddata"><strong>loaddata</strong></a>(self, loaddata)</dt><dd><tt>reads&nbsp;data&nbsp;and&nbsp;loads&nbsp;from&nbsp;csv&nbsp;file<br>
+&nbsp;<br>
+Keyword&nbsp;arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:loaddata:&nbsp;name&nbsp;of&nbsp;file&nbsp;to&nbsp;load&nbsp;from</tt></dd></dl>
+
+<dl><dt><a name="Report-reportAll"><strong>reportAll</strong></a>(self, module='All')</dt><dd><tt>Returns&nbsp;all&nbsp;reports&nbsp;to&nbsp;screen</tt></dd></dl>
+
+<dl><dt><a name="Report-tocsv"><strong>tocsv</strong></a>(self, file)</dt><dd><tt>writes&nbsp;report&nbsp;of&nbsp;information&nbsp;to&nbsp;csv&nbsp;file<br>
+&nbsp;<br>
+Keyword&nbsp;arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:file:&nbsp;name&nbsp;of&nbsp;file&nbsp;to&nbsp;write&nbsp;to</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="quickStats">class <strong>quickStats</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Simple&nbsp;implementation&nbsp;that&nbsp;reads&nbsp;data&nbsp;and&nbsp;outputs&nbsp;quick&nbsp;stats<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="quickStats-__init__"><strong>__init__</strong></a>(self, lst)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="quickStats-calcstats"><strong>calcstats</strong></a>(self)</dt><dd><tt>function&nbsp;for&nbsp;stat&nbsp;preprocessing</tt></dd></dl>
+
+<dl><dt><a name="quickStats-stoutstats"><strong>stoutstats</strong></a>(self)</dt><dd><tt>prints&nbsp;stats&nbsp;to&nbsp;standard&nbsp;out</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
