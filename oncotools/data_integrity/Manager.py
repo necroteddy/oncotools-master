@@ -3,7 +3,7 @@ from oncotools.data_integrity.Modules.check_contiguity_voxels import check_conti
 from oncotools.data_integrity.Modules.check_dose_grid import check_dose_grid
 from oncotools.data_integrity.data.data_doses import data_doses
 from oncotools.data_integrity.data.data_roi import data_roi
-from oncotools.data_integrity.data.data_assessments import data_roi
+from oncotools.data_integrity.data.data_assessments import data_assessments
 import sys
 
 '''
@@ -77,7 +77,7 @@ class Manager(object):
         elif datatype == 'dosemask':
             data = data_doses.get_data(dbase, ID)
         elif datatype == 'assessments':
-            data = data_roi.get_data(dbase, ID)
+            data = data_assessments.get_data(dbase, ID)
         else:
             sys.stderr.write("Reader for data type chosen does not exist.")
         return data
