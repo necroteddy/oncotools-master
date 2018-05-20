@@ -73,4 +73,4 @@ class check_contiguity_voxels(Integrity_Module):
         else:
             errortype = None
 
-        return valid #(valid, message, errortype)
+        return (valid, message, errortype)
